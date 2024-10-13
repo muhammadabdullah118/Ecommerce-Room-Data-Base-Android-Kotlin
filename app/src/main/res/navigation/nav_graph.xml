@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--suppress NavigationFile -->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/itemListFragment">
+
+    <fragment
+        android:id="@+id/itemListFragment"
+        android:name="com.example.assigmentecommerce.ItemListFragment"
+        android:label="fragment_item_list"
+        tools:layout="@layout/fragment_item_list" >
+        <action
+            android:id="@+id/action_itemListFragment_to_addItemFragment"
+            app:destination="@id/addItemFragment" />
+        <action
+            android:id="@+id/action_itemListFragment_to_itemDetailsFragment"
+            app:destination="@id/itemDetailsFragment" />
+        <action
+            android:id="@+id/action_itemListFragment_to_itemUpdateFragment"
+            app:destination="@id/itemUpdateFragment" />
+        <action
+            android:id="@+id/action_itemListFragment_to_orderHistoryFragment"
+            app:destination="@id/orderHistoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addItemFragment"
+        android:name="com.example.assigmentecommerce.AddItemFragment"
+        android:label="fragment_add_item"
+        tools:layout="@layout/fragment_add_item" >
+        <action
+            android:id="@+id/action_addItemFragment_to_itemListFragment"
+            app:destination="@id/itemListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemDetailsFragment"
+        android:name="com.example.assigmentecommerce.ItemDetailsFragment"
+        android:label="fragment_item_details"
+        tools:layout="@layout/fragment_item_details" >
+        <action
+            android:id="@+id/action_itemDetailsFragment_to_itemListFragment"
+            app:destination="@id/itemListFragment" />
+        <action
+            android:id="@+id/action_itemDetailsFragment_to_placeOrderFragment"
+            app:destination="@id/placeOrderFragment" />
+        <argument
+            android:name="item"
+            app:argType="com.example.assigmentecommerce.Item"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/placeOrderFragment"
+        android:name="com.example.assigmentecommerce.PlaceOrderFragment"
+        android:label="fragment_place_order"
+        tools:layout="@layout/fragment_place_order" >
+        <action
+            android:id="@+id/action_placeOrderFragment_to_itemDetailsFragment"
+            app:destination="@id/itemDetailsFragment" />
+        <action
+            android:id="@+id/action_placeOrderFragment_to_itemListFragment"
+            app:destination="@id/itemListFragment" />
+        <argument
+            android:name="item"
+            app:argType="com.example.assigmentecommerce.Item"/>
+    </fragment>
+    <fragment
+        android:id="@+id/itemUpdateFragment"
+        android:name="com.example.assigmentecommerce.ItemUpdateFragment"
+        android:label="fragment_item_update"
+        tools:layout="@layout/fragment_item_update" >
+        <action
+            android:id="@+id/action_itemUpdateFragment_to_itemListFragment"
+            app:destination="@id/itemListFragment" />
+        <argument
+            android:name="item"
+            app:argType="com.example.assigmentecommerce.Item"/>
+    </fragment>
+    <fragment
+        android:id="@+id/orderHistoryFragment"
+        android:name="com.example.assigmentecommerce.OrderHistoryFragment"
+        android:label="fragment_order_history"
+        tools:layout="@layout/fragment_order_history" >
+        <action
+            android:id="@+id/action_orderHistoryFragment_to_orderUpdateFragment"
+            app:destination="@id/orderUpdateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderUpdateFragment"
+        android:name="com.example.assigmentecommerce.OrderUpdateFragment"
+        android:label="fragment_order_update"
+        tools:layout="@layout/fragment_order_update" >
+        <action
+            android:id="@+id/action_orderUpdateFragment_to_orderHistoryFragment"
+            app:destination="@id/orderHistoryFragment" />
+        <argument
+            android:name="order"
+            app:argType="com.example.assigmentecommerce.Order"/>
+    </fragment>
+</navigation>
